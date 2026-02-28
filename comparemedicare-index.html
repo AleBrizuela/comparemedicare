@@ -1770,6 +1770,94 @@ footer { background: #0a1628 !important; }
       background: var(--lt-gray);
       transition: opacity 0.3s;
     }
+
+    /* ══════════════════════════════════════════════════════════
+       17. MULTI-VIEWPORT MOBILE OPTIMIZATION
+       Top 5: iPhone SE/S8+ (360), iPhone14 (390), Pixel7 (412),
+              iPhone14 ProMax (430), small tablet (600)
+       ══════════════════════════════════════════════════════════ */
+
+    /* ── 17a. Small Tablet (≤600px) ── */
+    @media (max-width: 600px) {
+      .container { padding: 0 1.25rem; }
+      section { padding: 48px 16px; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+      .steps { grid-template-columns: 1fr; gap: 1.5rem; }
+      .section-title { font-size: 1.6rem; }
+      .section-sub { font-size: 0.95rem; }
+      .carrier-pill { padding: 0.5rem 1rem; font-size: 0.85rem; }
+    }
+
+    /* ── 17b. Standard Phone (≤480px) ── */
+    @media (max-width: 480px) {
+      .container { padding: 0 1rem; }
+      .hero { padding: 100px 1rem 32px !important; }
+      .hero h1 { font-size: 26px !important; line-height: 1.15 !important; }
+      .hero p { font-size: 14px !important; line-height: 1.5 !important; }
+      .hero-ctas { flex-direction: column; gap: 8px !important; }
+      .hero-ctas .btn { width: 100%; text-align: center; font-size: 15px; padding: 14px 16px !important; min-height: 48px; }
+      .btn { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+      .section-label { font-size: 11px !important; letter-spacing: 0.12em; }
+
+      /* Step cards */
+      .how-it-works [style*="width:64px"] { width: 52px !important; height: 52px !important; }
+      .how-it-works [style*="font-size:1.6rem"] { font-size: 1.3rem !important; }
+      .how-it-works [style*="font-size:2rem"] { font-size: 1.6rem !important; }
+
+      /* FAQ */
+      .faq-question { min-height: 48px; font-size: 15px !important; padding: 16px !important; }
+      .faq-answer p { font-size: 14px !important; line-height: 1.65 !important; }
+
+      /* Carrier pills horizontal scroll */
+      .carriers-row { overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap !important; padding-bottom: 8px; }
+      .carrier-pill { flex-shrink: 0; font-size: 0.8rem; }
+
+      /* Widget */
+      .widget-container { padding: 24px 16px !important; }
+      .widget-opt { min-height: 56px !important; }
+
+      /* Footer */
+      footer { padding: 32px 16px 90px !important; }
+      footer a { min-height: 44px; display: inline-flex; align-items: center; padding: 6px 8px !important; }
+
+      /* Font minimums */
+      .lead-progress-label, .chat-input-hint, .trust-bar-label { font-size: 12px !important; }
+      .dob-picker-form label { font-size: 13px !important; }
+
+      /* Testimonial photos */
+      [style*="width:80px"][style*="border-radius:50%"] { width: 64px !important; height: 64px !important; }
+    }
+
+    /* ── 17c. Narrow Phone (≤390px) iPhone 14 / Pixel base ── */
+    @media (max-width: 390px) {
+      .hero h1 { font-size: 24px !important; }
+      .hero p { font-size: 13px !important; }
+      nav { padding: 1rem !important; }
+      .nav-brand { font-size: 1.25rem !important; }
+      .widget-container { padding: 20px 12px !important; }
+    }
+
+    /* ── 17d. Extra Narrow (≤360px) iPhone SE / Samsung S8+ ── */
+    @media (max-width: 360px) {
+      .container { padding: 0 0.75rem; }
+      .hero { padding: 90px 0.75rem 24px !important; }
+      .hero h1 { font-size: 22px !important; }
+      .section-title { font-size: 1.35rem !important; }
+      .section-sub { font-size: 0.85rem !important; }
+      .how-it-works [style*="width:64px"],
+      .how-it-works [style*="width:52px"] { width: 48px !important; height: 48px !important; }
+      .faq-question { font-size: 14px !important; padding: 14px !important; }
+      .widget-container { padding: 16px 10px !important; }
+      .widget-opt { font-size: 14px !important; padding: 12px 10px !important; }
+      .carrier-pill { padding: 0.4rem 0.75rem; font-size: 0.75rem; }
+    }
+
+    /* ── 17e. Safe area for notched devices ── */
+    @supports (padding-bottom: env(safe-area-inset-bottom)) {
+      footer {
+        padding-bottom: calc(90px + env(safe-area-inset-bottom)) !important;
+      }
+    }
     </style>
   <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
   <link rel="shortcut icon" href="favicon-192x192.png">
